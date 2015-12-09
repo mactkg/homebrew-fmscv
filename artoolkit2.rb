@@ -5,6 +5,12 @@ class Artoolkit2 < Formula
   version "2.72.1"
   sha256 "1a49a67c6e196b0e9990e90255ce840287ac47b5a53371a68a6dd93a5425d259"
 
+  def patches
+    [
+      'https://gist.githubusercontent.com/mactkg/72c887f93930525a12bb/raw/188b69cc1d1afb758a70a6e725276102c0371c86/arLabeling-large-video.patch'
+    ]
+  end
+
   def install
     xcodebuild "-arch", "i386", "-sdk", "macosx", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "SDKROOT="
     
@@ -17,5 +23,4 @@ class Artoolkit2 < Formula
 
     include.install Dir["include/*"]
   end
-
 end
