@@ -6,7 +6,7 @@ class Artoolkit2 < Formula
   sha256 "1a49a67c6e196b0e9990e90255ce840287ac47b5a53371a68a6dd93a5425d259"
 
   def install
-    xcodebuild "-sdk", "macosx", "-arch", "i386"
+    xcodebuild "-arch", "i386", "-sdk", "macosx", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "SDKROOT="
     
     lib.install "./lib/libAR.a"
     lib.install "./lib/libARMulti.a"
